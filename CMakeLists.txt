@@ -403,7 +403,8 @@ if(WIN32)
     if(BUILD_SHARED_LIBS)
         # Add the Windows resource file for liblzma.dll.
         target_sources(liblzma PRIVATE src/liblzma/liblzma_w32res.rc)
-
+        # Add config location
+        target_include_directories(liblzma PRIVATE windows/vs2019)
         # Export the public API symbols with __declspec(dllexport).
         target_compile_definitions(liblzma PRIVATE DLL_EXPORT)
     else()
